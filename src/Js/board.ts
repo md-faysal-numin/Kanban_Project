@@ -1,4 +1,4 @@
-let isLoggedIn = localStorage.getItem("isLoggedIn");
+let isLoggedIn = sessionStorage.getItem("isLoggedIn");
 
 function goToLogIn(): void {
   setTimeout(() => {
@@ -68,13 +68,13 @@ function load(username: string): void {
         let sectionEl = document.querySelector<HTMLDivElement>(`#${section}`)!;
         sectionEl.appendChild(task);
 
-        // let editBtn = document.querySelector<HTMLButtonElement>(".editBtn")!;
+        let editBtn = document.querySelector<HTMLButtonElement>(".editBtn")!;
         let deleteBtn =
           document.querySelector<HTMLButtonElement>(".deleteBtn")!;
         // console.log(deleteBtn.dataset.id);
 
         let keyToRemove = deleteBtn.dataset.id!.toString();
-        // console.log(typeof keyToRemove);
+
         deleteBtn.addEventListener("click", () => {
           // console.log("hello", keyToRemove);
           // console.log(tasksObj[keyToRemove]);
@@ -103,7 +103,14 @@ function load(username: string): void {
             load(isLoggedIn);
           }
           alert("Deleted Successfully");
-          return;
+          // return;
+        });
+
+        editBtn.addEventListener("click", () => {
+          localStorage.setItem("Edit", keyToRemove);
+          setTimeout(() => {
+            window.location.href = "editTask.html";
+          }, 300);
         });
       }
     }
@@ -120,7 +127,7 @@ if (isLoggedIn) {
     window.location.href = "./addTask.html";
   });
   logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("isLoggedIn");
+    sessionStorage.removeItem("isLoggedIn");
     goToLogIn();
   });
 } else {

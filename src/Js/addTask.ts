@@ -1,4 +1,4 @@
-let isLoggedIn = localStorage.getItem("isLoggedIn");
+let isLoggedIn = sessionStorage.getItem("isLoggedIn");
 
 function goToLogIn(): void {
   setTimeout(() => {

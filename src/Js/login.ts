@@ -17,7 +17,7 @@ loginForm.addEventListener("submit", (e) => {
       let userObj = JSON.parse(userObjStr);
       let savedPass = userObj[emailObj[email]].password;
       if (savedPass === password) {
-        localStorage.setItem("isLoggedIn", emailObj[email]);
+        sessionStorage.setItem("isLoggedIn", emailObj[email]);
         setTimeout(() => {
           window.location.href = "./board.html";
         }, 500);
