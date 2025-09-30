@@ -30,8 +30,8 @@ if (isLoggedIn) {
     }
   }
 
-  addTaskForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+  addTaskForm.addEventListener("submit", () => {
+    // e.preventDefault();
     let tasksStr = localStorage.getItem("Tasks");
     if (tasksStr === null) {
       let obj = {};
@@ -48,7 +48,7 @@ if (isLoggedIn) {
         if (assignUser.options[i].selected) {
           let val = assignUser.options[i].value;
           assignedUsers.push(val);
-          userObj[val].task.push(id);
+          userObj[val].task.push(String(id));
         }
       }
       localStorage.setItem("User", JSON.stringify(userObj));
@@ -59,6 +59,7 @@ if (isLoggedIn) {
       description: `${taskDescription.value}`,
       assigned: `${assignedUsers}`,
       section: `${sectionVal}`,
+      creator: `${isLoggedIn}`,
     };
     localStorage.setItem("Tasks", JSON.stringify(tasksObj));
 

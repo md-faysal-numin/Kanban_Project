@@ -26,7 +26,7 @@ function load(username: string): void {
         let taskDescription = tasksObj[tasksId[i]].description;
         // console.log(tasksObj[tasksId[i]].assigned);
         let assignedUserList = tasksObj[tasksId[i]].assigned.split(",");
-        let username = isLoggedIn;
+        // let username = isLoggedIn;
         let task = document.createElement("div");
         task.className = "task";
         let asd: any;
@@ -48,13 +48,19 @@ function load(username: string): void {
                             <label>Assigned for</label>
                             <select class="assginedList">${asd}</select>
                             <p class="creator">
-                            Task Created By: <span class="creatorName">${username}</span>
+                            Task Created By: <span class="creatorName">${
+                              tasksObj[tasksId[i]].creator
+                            }</span>
                             </p>
                             </div>
                             <div class="task-btn">
           
-                            <button class="btn editBtn data-id="${tasksId[i]}">Edit</button>
-                            <button class="btn deleteBtn" data-id="${tasksId[i]}">Delete</button>
+                            <button class="btn editBtn data-id="${
+                              tasksId[i]
+                            }">Edit</button>
+                            <button class="btn deleteBtn" data-id="${
+                              tasksId[i]
+                            }">Delete</button>
                             </div>
                             </div>   `;
 
@@ -62,21 +68,25 @@ function load(username: string): void {
         let sectionEl = document.querySelector<HTMLDivElement>(`#${section}`)!;
         sectionEl.appendChild(task);
 
-        let editBtn = document.querySelector<HTMLButtonElement>(".editBtn")!;
+        // let editBtn = document.querySelector<HTMLButtonElement>(".editBtn")!;
         let deleteBtn =
           document.querySelector<HTMLButtonElement>(".deleteBtn")!;
         // console.log(deleteBtn.dataset.id);
 
+        let keyToRemove = deleteBtn.dataset.id!.toString();
+        // console.log(typeof keyToRemove);
         deleteBtn.addEventListener("click", () => {
-          let keyToRemove = deleteBtn.dataset.id!.toString();
           // console.log("hello", keyToRemove);
           // console.log(tasksObj[keyToRemove]);
           let deleteTaskUsers = tasksObj[keyToRemove].assigned.split(",");
+          // console.log(deleteTaskUsers);
           for (let i = 0; i < deleteTaskUsers.length; i++) {
-            userObj[deleteTaskUsers[i]].task = userObj[
-              deleteTaskUsers[i]
-            ].task.map((cur: string) => cur !== keyToRemove);
+            let user = deleteTaskUsers[i];
+            userObj[user].task = userObj[user].task.filter(
+              (cur: string) => cur !== keyToRemove
+            );
           }
+          // console.log(userObj);
           localStorage.setItem("User", JSON.stringify(userObj));
 
           const newObject = Object.fromEntries(
