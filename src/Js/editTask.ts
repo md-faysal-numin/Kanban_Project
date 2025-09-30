@@ -63,7 +63,7 @@ if (isLoggedIn) {
     }
   }
 
-  editTaskForm.addEventListener("submit", () => {
+  editTaskForm.addEventListener("submit", (e) => {
     // e.preventDefault();
     // localStorage.removeItem("Edit");
     let taskObj = JSON.parse(taskObjStr);
@@ -83,18 +83,18 @@ if (isLoggedIn) {
       );
     }
     // console.log(userObj);
-    localStorage.setItem("User", JSON.stringify(userObj));
 
     let assignedUsersList: string[] = [];
     for (let i = 0; i < assignUser.options.length; i++) {
       if (assignUser.options[i].selected) {
         let val = assignUser.options[i].value;
         assignedUsersList.push(val);
-        userObj[val].task.push(editId);
+        userObj[val].task.push(String(editId));
       }
     }
     taskObj[editId].assigned = `${assignedUsersList}`;
 
+    localStorage.setItem("User", JSON.stringify(userObj));
     localStorage.setItem("Tasks", JSON.stringify(taskObj));
 
     alert("Successfully Edited task");

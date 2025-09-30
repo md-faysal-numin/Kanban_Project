@@ -45,7 +45,7 @@ function load(username: string): void {
                             >${taskDescription}
                             </span>
                             </p>
-                            <label>Assigned for</label>
+                            <label>Assigned for :</label>
                             <select class="assginedList">${asd}</select>
                             <p class="creator">
                             Task Created By: <span class="creatorName">${
