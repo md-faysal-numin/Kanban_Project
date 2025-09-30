@@ -29,6 +29,8 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  width: 80%;
+  margin: auto;
 }
 
 .board-section {

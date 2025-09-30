@@ -63,7 +63,7 @@ if (isLoggedIn) {
     }
   }
 
-  editTaskForm.addEventListener("submit", (e) => {
+  editTaskForm.addEventListener("submit", () => {
     // e.preventDefault();
     // localStorage.removeItem("Edit");
     let taskObj = JSON.parse(taskObjStr);

@@ -15,6 +15,10 @@ function load(username: string): void {
     document.querySelector<HTMLDivElement>("#inProgressTasks")!;
   let testingTasks = document.querySelector<HTMLDivElement>("#testingTasks")!;
   let finishedTasks = document.querySelector<HTMLDivElement>("#finishedTasks")!;
+
+  let usernameEl = document.querySelector<HTMLHeadingElement>("#username")!;
+  usernameEl.append(`Username: ${username}`);
+
   if (userObjStr) {
     let userObj = JSON.parse(userObjStr);
     let tasksId = [...userObj[username].task];
