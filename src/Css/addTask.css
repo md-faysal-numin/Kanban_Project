@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.btn {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+.container {
+  /* outline: 1px solid red; */
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 500px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  /* gap: 2rem; */
+  align-items: center;
+}
+#addTaskForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.container input {
+  width: 100%;
+}
+.select-container {
+  display: flex;
+  flex-direction: column;
+}
