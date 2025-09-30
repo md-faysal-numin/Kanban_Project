@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Form</title>
+    <script type="module" crossorigin src="/Kanban_Project/assets/register-CmR-kYiz.js"></script>
+    <link rel="modulepreload" crossorigin href="/Kanban_Project/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="stylesheet" crossorigin href="/Kanban_Project/assets/register-B0ZiXDBn.css">
+  </head>
+  <body>
+    <div class="regContainer">
+      <form action="" id="regForm">
+        <h1>Register Form</h1>
+        <div id="usernameContainer">
+          <label for="usernameInput"><span>*</span>Username:</label>
+          <input type="text" name="username" id="usernameInput" required />
+          <span id="usernameError"></span>
+        </div>
+        <div id="emailContainer">
+          <label for="emailInput"><span>*</span>Email:</label>
+          <input type="email" name="email" id="emailInput" required />
+          <span id="emailError"></span>
+        </div>
+        <div id="passwordContainer">
+          <label for="passwordInput"><span>*</span>Password:</label>
+          <input type="password" name="password" id="passwordInput" required />
+          <span id="passwordError"></span>
+        </div>
+        <button type="submit" id="regBtn">Register</button>
+        <p>Already have a account? <a href="login.html">Log in</a></p>
+      </form>
+    </div>
+  </body>
+</html>
