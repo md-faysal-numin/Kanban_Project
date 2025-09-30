@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban DashBoard</title>
+    <script type="module" crossorigin src="/Kanban_Project/assets/board-DXC_K1Pu.js"></script>
+    <link rel="modulepreload" crossorigin href="/Kanban_Project/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="stylesheet" crossorigin href="/Kanban_Project/assets/board-DRdErA-H.css">
+  </head>
+  <body>
+    <div class="board-navbar">
+      <h1 id="heading">Kanban Board</h1>
+      <h3 id="username"></h3>
+      <div class="nav-btn">
+        <button class="addBtn btn flex-end">Add Task</button>
+        <button class="logoutBtn btn flex-end">Logout</button>
+      </div>
+    </div>
+    <div class="board-container">
+      <div class="board-section">
+        <div class="box">
+          <h3 class="box-heading">ToDo</h3>
+
+          <div class="tasks-container">
+            <div class="tasks" id="todoTasks"></div>
+          </div>
+        </div>
+        <div class="box">
+          <h3 class="box-heading">In Progress</h3>
+          <div class="tasks-container">
+            <div class="tasks" id="inProgressTasks"></div>
+          </div>
+        </div>
+        <div class="box">
+          <h3 class="box-heading">Testing</h3>
+          <div class="tasks-container">
+            <div class="tasks" id="testingTasks"></div>
+          </div>
+        </div>
+        <div class="box">
+          <h3 class="box-heading">Finished</h3>
+          <div class="tasks-container">
+            <div class="tasks" id="finishedTasks"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
