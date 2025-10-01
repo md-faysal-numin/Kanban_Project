@@ -19,7 +19,7 @@ function load(username: string): void {
   let finishedTasks = document.querySelector<HTMLDivElement>("#finishedTasks")!;
 
   let usernameEl = document.querySelector<HTMLHeadingElement>("#username")!;
-  usernameEl.append(`Username: ${username}`);
+  usernameEl.textContent = `Username: ${username}`;
 
   if (userObjStr) {
     let userObj: User = JSON.parse(userObjStr);
