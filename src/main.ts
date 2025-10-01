@@ -11,7 +11,7 @@ import "./Css/register.css";
 // setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
 
 const regBtn = document.querySelector<HTMLButtonElement>("#registerBtn")!;
-const loginBtn = document.querySelector<HTMLButtonElement>("#loginBtn")!;
+const loginBtn = document.querySelector<HTMLButtonElement>("#logInBtn")!;
 
 regBtn.addEventListener("click", () => {
   setTimeout(() => {
