@@ -1,5 +1,9 @@
 import "./style.css";
-
+import "./Css/addTask.css";
+import "./Css/board.css";
+import "./Css/editTask.css";
+import "./Css/login.css";
+import "./Css/register.css";
 // document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 //  hello
 // `;

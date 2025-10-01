@@ -1,3 +1,5 @@
+import type { Email, User } from "./type";
+
 const emailInput = document.querySelector<HTMLInputElement>("#emailInput")!;
 const passwordInput =
   document.querySelector<HTMLInputElement>("#passwordInput")!;
@@ -8,13 +10,13 @@ loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let objStr: string | null = localStorage.getItem("Email");
   if (objStr) {
-    let emailObj = JSON.parse(objStr);
+    let emailObj:Email = JSON.parse(objStr);
 
     let email = emailInput.value.toString();
     let password = passwordInput.value.toString();
     if (emailObj[email]) {
       let userObjStr: string | null = localStorage.getItem("User")!;
-      let userObj = JSON.parse(userObjStr);
+      let userObj:User = JSON.parse(userObjStr);
       let savedPass = userObj[emailObj[email]].password;
       if (savedPass === password) {
         sessionStorage.setItem("isLoggedIn", emailObj[email]);

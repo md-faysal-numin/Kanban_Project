@@ -1,3 +1,5 @@
+import type { Task, User } from "./type";
+
 let isLoggedIn = sessionStorage.getItem("isLoggedIn");
 
 function goToLogIn(): void {
@@ -20,11 +22,11 @@ function load(username: string): void {
   usernameEl.append(`Username: ${username}`);
 
   if (userObjStr) {
-    let userObj = JSON.parse(userObjStr);
-    let tasksId = [...userObj[username].task];
+    let userObj: User = JSON.parse(userObjStr);
+    let tasksId: string[] = [...userObj[username].task];
 
     if (tasksObjStr) {
-      let tasksObj = JSON.parse(tasksObjStr);
+      let tasksObj: Task = JSON.parse(tasksObjStr);
       for (let i = 0; i < tasksId.length; i++) {
         let taskTitle = tasksObj[tasksId[i]].title;
         let taskDescription = tasksObj[tasksId[i]].description;
@@ -33,9 +35,9 @@ function load(username: string): void {
         // let username = isLoggedIn;
         let task = document.createElement("div");
         task.className = "task";
-        let asd: any;
+        let assignedHtml: string = "";
         for (let i = 0; i < assignedUserList.length; i++) {
-          asd += `<option value="${assignedUserList[i]}">${assignedUserList[i]}</option>`;
+          assignedHtml += `<option value="${assignedUserList[i]}">${assignedUserList[i]}</option>`;
         }
         task.innerHTML = `
         
@@ -50,7 +52,7 @@ function load(username: string): void {
                             </span>
                             </p>
                             <label>Assigned for :</label>
-                            <select class="assginedList">${asd}</select>
+                            <select class="assginedList">${assignedHtml}</select>
                             <p class="creator">
                             Task Created By: <span class="creatorName">${
                               tasksObj[tasksId[i]].creator
@@ -93,7 +95,7 @@ function load(username: string): void {
           // console.log(userObj);
           localStorage.setItem("User", JSON.stringify(userObj));
 
-          const newObject = Object.fromEntries(
+          const newObject: Task = Object.fromEntries(
             Object.entries(tasksObj).filter(([key]) => key !== keyToRemove)
           );
           // console.log(newObject);

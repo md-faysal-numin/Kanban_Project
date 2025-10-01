@@ -1,3 +1,5 @@
+import type { Email, User } from "./type";
+
 const nameInput = document.querySelector<HTMLInputElement>("#usernameInput")!;
 const emailInput = document.querySelector<HTMLInputElement>("#emailInput")!;
 const passwordInput =
@@ -104,8 +106,8 @@ regForm.addEventListener("submit", (e) => {
 
   let userObjStr = localStorage.getItem("User");
   if (userObjStr) {
-    let userObj = JSON.parse(userObjStr);
-    let emailObj = JSON.parse(localStorage.getItem("Email")!);
+    let userObj: User = JSON.parse(userObjStr);
+    let emailObj: Email = JSON.parse(localStorage.getItem("Email")!);
     userObj[username] = {
       email: `${email}`,
       password: `${password}`,
@@ -115,17 +117,17 @@ regForm.addEventListener("submit", (e) => {
     localStorage.setItem("User", JSON.stringify(userObj));
     localStorage.setItem("Email", JSON.stringify(emailObj));
   } else {
-    let userObj = {
+    let userObj:User = {
       [username]: {
         email: `${email}`,
         password: `${password}`,
         task: [],
       },
     };
-    let emailObj = {
+    let emailObj:Email = {
       [email]: `${username}`,
     };
-    console.log(emailObj, userObj);
+    // console.log(emailObj, userObj);
     localStorage.setItem("User", JSON.stringify(userObj));
     localStorage.setItem("Email", JSON.stringify(emailObj));
   }

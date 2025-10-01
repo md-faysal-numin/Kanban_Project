@@ -1,3 +1,5 @@
+import type { Task, User } from "./type";
+
 let isLoggedIn = sessionStorage.getItem("isLoggedIn");
 
 function goToLogIn(): void {
@@ -23,7 +25,7 @@ if (isLoggedIn) {
 
   let userObjStr = localStorage.getItem("User");
   if (userObjStr) {
-    let userObj = JSON.parse(userObjStr);
+    let userObj:User = JSON.parse(userObjStr);
     // console.log(userObjStr);
     for (let k in userObj) {
       assignUser.innerHTML += `<option value="${k}">${k}</option>`;
@@ -38,12 +40,12 @@ if (isLoggedIn) {
       localStorage.setItem("Tasks", JSON.stringify(obj));
     }
     tasksStr = localStorage.getItem("Tasks")!;
-    const tasksObj = JSON.parse(tasksStr);
+    const tasksObj:Task = JSON.parse(tasksStr);
     let id = Date.now();
 
     let assignedUsers: string[] = [];
     if (userObjStr) {
-      let userObj = JSON.parse(userObjStr);
+      let userObj:User = JSON.parse(userObjStr);
       for (let i = 0; i < assignUser.options.length; i++) {
         if (assignUser.options[i].selected) {
           let val = assignUser.options[i].value;

@@ -1,3 +1,5 @@
+import type { Task, User } from "./type";
+
 let isLoggedIn = sessionStorage.getItem("isLoggedIn");
 
 function goToLogIn(): void {
@@ -25,7 +27,7 @@ if (isLoggedIn) {
   let editId = localStorage.getItem("Edit")!;
   let taskObjStr = localStorage.getItem("Tasks")!;
   if (taskObjStr) {
-    let taskObj = JSON.parse(taskObjStr);
+    let taskObj: Task = JSON.parse(taskObjStr);
 
     taskTitle.value = taskObj[editId].title;
     taskDescription.value = taskObj[editId].description;
@@ -40,7 +42,7 @@ if (isLoggedIn) {
     let assignedUserList = taskObj[editId].assigned.split(",");
 
     let userObjStr = localStorage.getItem("User")!;
-    let userObj = JSON.parse(userObjStr);
+    let userObj: User = JSON.parse(userObjStr);
     for (let k in userObj) {
       let x: boolean = true;
       for (let j of assignedUserList) {
@@ -72,9 +74,9 @@ if (isLoggedIn) {
     taskObj[editId].description = `${taskDescription.value}`;
 
     let userObjStr = localStorage.getItem("User")!;
-    let userObj = JSON.parse(userObjStr);
+    let userObj: User = JSON.parse(userObjStr);
 
-    let deleteTaskUsers = taskObj[editId].assigned.split(",");
+    let deleteTaskUsers: string[] = taskObj[editId].assigned.split(",");
     // console.log(deleteTaskUsers);
     for (let i = 0; i < deleteTaskUsers.length; i++) {
       let user = deleteTaskUsers[i];
